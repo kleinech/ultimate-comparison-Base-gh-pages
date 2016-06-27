@@ -1,0 +1,32 @@
+<div id="header" *ngIf="data">
+    <h3 class="modal-title">{{header.text}}
+        <template ngFor let-sitem [ngForOf]="data[detail['header-label']].childs[0][0]" *ngIf="!header.label?.ngCls && data[detail['header-label']] && data[detail['header-label']].childs && data[detail['header-label']].childs[0] && data[detail['header-label']].childs[0][0]">
+            <span class="{{header.label.cls}}">{{sitem}}</span>
+        </template>
+        <template ngFor let-sitem [ngForOf]="data[detail['header-label']].childs[0][0]" *ngIf="header.label?.ngCls && data[detail['header-label']] && data[detail['header-label']].childs && data[detail['header-label']].childs[0] && data[detail['header-label']].childs[0][0]">
+            <span class="{{header.label.cls}} {{header.label.ngCls.getCls(sitem)}}">{{sitem}}</span>
+        </template>
+        <small><a href="{{header.url}}" target="_blank">{{header.url}}</a></small>
+    </h3>
+</div>
+<div id="body" *ngIf="data">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>{{detail["body-main-title"]}}</h3>
+            <div [innerHTML]=description></div>
+        </div>
+        <template ngFor let-atag [ngForOf]="detail['body-attachment-tags']">
+            <div class="col-sm-12">
+            <h3>{{(table | arrayfilter : ['tag', atag])?.name}}</h3>
+            <p class="lead">
+            <template ngFor let-sitem [ngForOf]="data[atag].childs[0][0]" *ngIf="(table | arrayfilter : ['tag', atag])?.type?.ngCls && data[atag] && data[atag].childs && data[atag].childs[0] && data[atag].childs[0][0]">
+                <span class="{{(table | arrayfilter : ['tag', atag])?.type?.cls}} {{(table | arrayfilter : ['tag', atag])?.type?.ngCls.getCls(sitem)}} mylabel">{{sitem}}</span>
+            </template>
+            <template ngFor let-sitem [ngForOf]="data[atag].childs[0][0]" *ngIf="!(table | arrayfilter : ['tag', atag])?.type?.ngCls && data[atag] && data[atag].childs && data[atag].childs[0] && data[atag].childs[0][0]">
+                <span class="{{(table | arrayfilter : ['tag', atag])?.type?.cls}} mylabel">{{sitem}}</span>
+            </template>
+            </p>
+            </div>
+        </template>
+    </div>
+</div>

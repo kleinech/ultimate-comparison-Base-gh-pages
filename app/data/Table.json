@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Name",
+        "tag":  "tag",
+        "style": "width: 5%",
+        "display": true,
+        "type": {
+            "tag":"text"
+            },
+        "valign": "top"    
+    },
+    {
+        "name": "Prop. 1 Name",
+        "tag":  "Property 1",
+        "style": "width: 5%",
+        "display": false,
+        "type": {
+            "tag": "label",
+            "class": "label label-info"
+        }
+    },
+    {
+        "name": "Short Description",
+        "tag":  "descr",
+        "style": "width: 25%",
+        "display": true,
+        "type": {
+            "tag": "text"
+        }
+    },
+    {
+        "name": "Property 2",
+        "tag": "Property 2",
+        "style": "width: 5%",
+        "display": true,
+        "type": {
+            "tag": "label",
+            "class": "label",
+            "ngClass": {
+                "label-success": ["p21"],
+                "label-warning": ["p22"],
+                "label-danger": ["p23"]
+            }
+        }
+        
+    },
+    {
+        "name": "P3",
+        "tag":  "Property 3",
+        "style": "width: 5%",
+        "display": true,
+        "type": {
+            "tag": "label",
+            "class": "label label-info"
+        }
+    }
+]
