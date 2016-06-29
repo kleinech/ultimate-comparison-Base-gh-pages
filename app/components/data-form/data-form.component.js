@@ -64,7 +64,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/http', 
                         _this.data = res.json();
                         _this.data.forEach(function (entry) {
                             if (entry.tag) {
-                                var regArray = /^((?:(?:\w+\s*)(?:-?\s*\w+)*)+)\s*-?\s*((?:http|ftp|https)(?::\/\/)(?:[\w_-]+(?:(?:\.[\w_-]+)+))(?:[\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?)$/gi.exec(entry.tag);
+                                var regArray = /^((?:(?:\w+\s*)(?:-?\s*\w+.)*)+)\s*-?\s*((?:http|ftp|https)(?::\/\/)(?:[\w_-]+(?:(?:\.[\w_-]+)+))(?:[\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?)$/gi.exec(entry.tag);
                                 entry.url = regArray ? regArray[2] : "";
                                 entry.tag = regArray ? regArray[1] : entry.tag;
                             }
