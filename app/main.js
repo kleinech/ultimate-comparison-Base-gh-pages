@@ -1,20 +1,7 @@
-///<reference path="../node_modules/angular2/typings/browser.d.ts"/>
-System.register(['@angular/platform-browser-dynamic', './app.component'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var platform_browser_dynamic_1, app_component_1;
-    return {
-        setters:[
-            function (platform_browser_dynamic_1_1) {
-                platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
-            },
-            function (app_component_1_1) {
-                app_component_1 = app_component_1_1;
-            }],
-        execute: function() {
-            platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent);
-        }
-    }
-});
+"use strict";
+const platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
+const app_component_1 = require('./app.component');
+const index_1 = require('angular2-modal/platform-browser/index');
+platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [...index_1.MODAL_BROWSER_PROVIDERS]);
 
 //# sourceMappingURL=main.js.map

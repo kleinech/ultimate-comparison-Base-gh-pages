@@ -1,14 +1,15 @@
 import {Component, EventEmitter, AfterViewInit} from '@angular/core';
 import {SELECT_DIRECTIVES}  from 'ng2-select/ng2-select';
-
-declare var jQuery:JQueryStatic;
+import { TOOLTIP_DIRECTIVES } from 'ng2-bootstrap/components/tooltip';
+import * as jQuery from 'jquery';
+import 'select2';
 
 @Component({
 selector: 'JQSelect',
 inputs: ['items', 'option', 'placeholder', 'id', 'maximumSelectionLength'],
 outputs:['result'],
 templateUrl: 'app/templates/select.tpl.html',
-directives: [SELECT_DIRECTIVES]
+directives: [SELECT_DIRECTIVES, TOOLTIP_DIRECTIVES]
 })
 export class JQSelect implements AfterViewInit {
     private items: Array<string> = [];
@@ -20,7 +21,6 @@ export class JQSelect implements AfterViewInit {
     
     private selectedFunction (){
         this.result.emit(this.value);
-        //console.log(this.value)
     }
     
     private mapme(value:any) {
@@ -36,8 +36,7 @@ export class JQSelect implements AfterViewInit {
         jQuery('#'+this.id).select2({
             placeholder: this.placeholder,
             allowClear: true,
-            tags: true,
-            maximumSelectionLength: this.maximumSelectionLength
+            tags: true    
         });
         jQuery('#'+this.id).on(
           'change',
@@ -49,9 +48,5 @@ export class JQSelect implements AfterViewInit {
     private ngselected(value:any) {
         this.value = value.text;
         this.result.emit(this.value);
-    }
-    
-    private dummy() {
-        //console.log("dummy");
     }
 }

@@ -1,27 +1,13 @@
-System.register(['./components/TableData', './components/LabelCls', './components/Type'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    function exportStar_1(m) {
-        var exports = {};
-        for(var n in m) {
-            if (n !== "default") exports[n] = m[n];
-        }
-        exports_1(exports);
-    }
-    return {
-        setters:[
-            function (TableData_1_1) {
-                exportStar_1(TableData_1_1);
-            },
-            function (LabelCls_1_1) {
-                exportStar_1(LabelCls_1_1);
-            },
-            function (Type_1_1) {
-                exportStar_1(Type_1_1);
-            }],
-        execute: function() {
-        }
-    }
-});
+"use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+__export(require('./components/Data'));
+__export(require('./components/LabelCls'));
+__export(require('./components/ListItem'));
+__export(require('./components/Property'));
+__export(require('./components/TableData'));
+__export(require('./components/Type'));
+__export(require('./components/Value'));
 
 //# sourceMappingURL=index.js.map
