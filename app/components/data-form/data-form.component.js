@@ -122,12 +122,14 @@ let DataFormComponent = class DataFormComponent {
                                 p.text == obj[key].text;
                             }
                             else {
-                                obj[key].childs[0][0].forEach(item => {
-                                    let content = item.content;
-                                    let plainChilds = item.plainChilds;
-                                    let itm = new index_1.ListItem(content, plainChilds, this.converter);
-                                    p.list.push(itm);
-                                });
+                                if (typeof obj[key].childs[0][0] != 'string') {
+                                    obj[key].childs[0][0].forEach(item => {
+                                        let content = item.content;
+                                        let plainChilds = item.plainChilds;
+                                        let itm = new index_1.ListItem(content, plainChilds, this.converter);
+                                        p.list.push(itm);
+                                    });
+                                }
                             }
                             data.properties[key] = p;
                             break;
