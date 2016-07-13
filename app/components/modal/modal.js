@@ -15,6 +15,7 @@ const tooltip_1 = require('ng2-bootstrap/components/tooltip');
 const showdown = require('showdown');
 const arrayfilter_pipe_1 = require('../../pipes/arrayfilter.pipe');
 const objectfilter_pipe_1 = require('../../pipes/objectfilter.pipe');
+const index_2 = require('./../shared/index');
 let ModalComponentMarkdown = class ModalComponentMarkdown {
     constructor(modal, elementRef, ref, viewContainer) {
         this.modal = modal;
@@ -25,6 +26,7 @@ let ModalComponentMarkdown = class ModalComponentMarkdown {
             text: "",
             label: {},
             url: "",
+            column: new index_2.TableData(),
         };
         this.converter = new showdown.Converter();
         modal.defaultViewContainer = viewContainer;
@@ -45,8 +47,9 @@ let ModalComponentMarkdown = class ModalComponentMarkdown {
             this.description = this.converter.makeHtml(data.getProperty(detail.body).plain);
             this.data = data;
             this.header.text = data[detail.header];
-            this.header.label = table.find(obj => obj.tag == detail["header-label"]).type;
             this.header.url = data[detail["header-url"]];
+            this.header.column = table.find(obj => obj.tag == detail["header-label"]);
+            this.header.label = this.header.column.type;
             this.ref.tick();
             this.header.html = this.elementRef.nativeElement.children.header.innerHTML;
             this.body = this.elementRef.nativeElement.children.body.innerHTML;
