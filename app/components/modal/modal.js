@@ -9,25 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
+const index_1 = require('angular2-modal/plugins/bootstrap/index');
+const router_deprecated_1 = require('@angular/router-deprecated');
 const tooltip_1 = require('ng2-bootstrap/components/tooltip');
 const showdown = require('showdown');
-const platform_browser_1 = require('@angular/platform-browser');
-const angular2_polymer_1 = require('@vaadin/angular2-polymer');
 const arrayfilter_pipe_1 = require('../../pipes/arrayfilter.pipe');
 const objectfilter_pipe_1 = require('../../pipes/objectfilter.pipe');
-const index_1 = require('./../shared/index');
+const index_2 = require('./../shared/index');
 let ModalComponentMarkdown = class ModalComponentMarkdown {
-    constructor(_sanitizer) {
-        this._sanitizer = _sanitizer;
-        this.opened = false;
+    constructor(modal, elementRef, ref, viewContainer) {
+        this.modal = modal;
+        this.elementRef = elementRef;
+        this.ref = ref;
         this.header = {
             html: "",
             text: "",
             label: {},
             url: "",
-            column: new index_1.TableData(),
+            column: new index_2.TableData(),
         };
         this.converter = new showdown.Converter();
+        modal.defaultViewContainer = viewContainer;
+    }
+    closed() {
+        this.selected = '(closed) ' + this.modalSelected;
+    }
+    dismissed() {
+        this.selected = '(dismissed)';
     }
     open(data, detail, table) {
         if (this.data == data) {
@@ -42,48 +50,29 @@ let ModalComponentMarkdown = class ModalComponentMarkdown {
             this.header.url = data[detail["header-url"]];
             this.header.column = table.find(obj => obj.tag == detail["header-label"]);
             this.header.label = this.header.column.type;
+            this.ref.tick();
+            this.header.html = this.elementRef.nativeElement.children.header.innerHTML;
+            this.body = this.elementRef.nativeElement.children.body.innerHTML;
             this.openModal();
         }
     }
     openModal() {
-        if (this.dialog) {
-            document.body.classList.add('modal-open');
-            this.container.nativeElement.classList.add('mc-opened');
-            this.dialog.nativeElement.open();
-            this.dialog.nativeElement.modal = true;
-        }
-    }
-    closeModal() {
-        if (this.dialog) {
-            document.body.classList.remove('modal-open');
-            this.container.nativeElement.classList.remove('mc-opened');
-            this.dialog.nativeElement.close();
-        }
+        this.modal.alert()
+            .titleHtml(this.header.html)
+            .size('lg')
+            .body(this.body)
+            .open();
     }
 };
-__decorate([
-    core_1.ViewChild('details'), 
-    __metadata('design:type', core_1.ElementRef)
-], ModalComponentMarkdown.prototype, "dialog", void 0);
-__decorate([
-    core_1.ViewChild('modalcontainer'), 
-    __metadata('design:type', core_1.ElementRef)
-], ModalComponentMarkdown.prototype, "container", void 0);
 ModalComponentMarkdown = __decorate([
     core_1.Component({
         selector: 'modalcomponent',
-        templateUrl: '../../templates/details.tpl.html',
-        directives: [
-            tooltip_1.TOOLTIP_DIRECTIVES,
-            angular2_polymer_1.PolymerElement('paper-dialog'),
-            angular2_polymer_1.PolymerElement('paper-button'),
-            angular2_polymer_1.PolymerElement('paper-card')
-        ],
-        pipes: [arrayfilter_pipe_1.ArrayFilter, objectfilter_pipe_1.ObjectFilter],
-        styleUrls: ['./style.css'],
-        moduleId: module.id
+        templateUrl: 'app/templates/details.tpl.html',
+        directives: [...router_deprecated_1.ROUTER_DIRECTIVES, tooltip_1.TOOLTIP_DIRECTIVES],
+        viewProviders: [...index_1.BS_MODAL_PROVIDERS],
+        pipes: [arrayfilter_pipe_1.ArrayFilter, objectfilter_pipe_1.ObjectFilter]
     }), 
-    __metadata('design:paramtypes', [platform_browser_1.DomSanitizationService])
+    __metadata('design:paramtypes', [index_1.Modal, core_1.ElementRef, core_1.ApplicationRef, core_1.ViewContainerRef])
 ], ModalComponentMarkdown);
 exports.ModalComponentMarkdown = ModalComponentMarkdown;
 

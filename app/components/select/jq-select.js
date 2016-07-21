@@ -32,12 +32,12 @@ let JQSelect = class JQSelect {
         });
     }
     ngAfterViewInit() {
-        jQuery(this.el.nativeElement).select2({
+        jQuery('#' + this.id).select2({
             placeholder: this.placeholder,
             allowClear: true,
             tags: true
         });
-        jQuery(this.el.nativeElement).on('change', (e) => (this.value = jQuery(e.target).val() ? jQuery(e.target).val() : [], this.result.emit(this.value)));
+        jQuery('#' + this.id).on('change', (e) => (this.value = jQuery(e.target).val() ? jQuery(e.target).val() : [], this.result.emit(this.value)));
     }
     // ng2-select listeners
     ngselected(value) {
@@ -45,10 +45,6 @@ let JQSelect = class JQSelect {
         this.result.emit(this.value);
     }
 };
-__decorate([
-    core_1.ViewChild('select2'), 
-    __metadata('design:type', core_1.ElementRef)
-], JQSelect.prototype, "el", void 0);
 JQSelect = __decorate([
     core_1.Component({
         selector: 'JQSelect',
