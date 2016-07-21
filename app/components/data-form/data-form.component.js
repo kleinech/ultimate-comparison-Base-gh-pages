@@ -13,11 +13,14 @@ const platform_browser_1 = require('@angular/platform-browser');
 const http_1 = require('@angular/http');
 const tooltip_1 = require('ng2-bootstrap/components/tooltip');
 const showdown = require('showdown');
+const angular2_polymer_1 = require('@vaadin/angular2-polymer');
 const datafilter_pipe_1 = require('../../pipes/datafilter.pipe');
 const jq_select_1 = require('../select/jq-select');
 const modal_1 = require('../modal/modal');
 const tablefilter_pipe_1 = require('../../pipes/tablefilter.pipe');
 const index_1 = require('./../shared/index');
+const dialog_component_1 = require('../modal/dialog.component');
+const modal_component_1 = require('../modal/modal.component');
 let DataFormComponent = class DataFormComponent {
     constructor(http, title) {
         this.http = http;
@@ -162,18 +165,38 @@ let DataFormComponent = class DataFormComponent {
     onShowDetails(data) {
         this.modalcomponent.open(data, this.detail, this.table);
     }
+    showTableProperties() {
+        this.tprop.open();
+    }
 };
 __decorate([
     core_1.ViewChild(modal_1.ModalComponentMarkdown), 
     __metadata('design:type', modal_1.ModalComponentMarkdown)
 ], DataFormComponent.prototype, "modalcomponent", void 0);
+__decorate([
+    core_1.ViewChild('settings'), 
+    __metadata('design:type', modal_component_1.ModalDialog)
+], DataFormComponent.prototype, "tprop", void 0);
 DataFormComponent = __decorate([
     core_1.Component({
         selector: 'data-form',
         templateUrl: 'app/templates/main.tpl.html',
         providers: [http_1.HTTP_PROVIDERS, platform_browser_1.Title],
         pipes: [datafilter_pipe_1.DataFilter, tablefilter_pipe_1.TableFilter],
-        directives: [jq_select_1.JQSelect, modal_1.ModalComponentMarkdown, tooltip_1.TOOLTIP_DIRECTIVES]
+        directives: [
+            jq_select_1.JQSelect,
+            modal_1.ModalComponentMarkdown,
+            tooltip_1.TOOLTIP_DIRECTIVES,
+            angular2_polymer_1.PolymerElement('paper-header-panel'),
+            angular2_polymer_1.PolymerElement('paper-dialog'),
+            angular2_polymer_1.PolymerElement('paper-toolbar'),
+            angular2_polymer_1.PolymerElement('paper-card'),
+            angular2_polymer_1.PolymerElement('paper-listbox'),
+            angular2_polymer_1.PolymerElement('paper-item'),
+            angular2_polymer_1.PolymerElement('paper-checkbox'),
+            dialog_component_1.PaperDialogDirective,
+            modal_component_1.ModalDialog
+        ]
     }), 
     __metadata('design:paramtypes', [http_1.Http, platform_browser_1.Title])
 ], DataFormComponent);
