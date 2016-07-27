@@ -1,13 +1,13 @@
 <html>
-
 <head>
     <title>Ultimate-Comparison</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 1. Load Style sheets -->
-    <link rel="stylesheet" href="app/css/Compare.css">
-    <link rel="stylesheet" href="app/css/ng2-select.css">
-    <link rel="stylesheet" href="app/css/bootstrap.min.css">
-    <link rel="stylesheet" href="app/css/select2.min.css">
+    <link rel="stylesheet" href="app/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="app/components/input/styles/select2.min.css">
+    <link rel="stylesheet" href="app/components/input/styles/style.css">
+    <link rel="stylesheet" href="app/components/comparison/styles/style.css">
+    <link rel="stylesheet" href="app/components/modaldialog/styles/style.css">
     
     <!-- 2. Load libraries -->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
@@ -28,6 +28,7 @@
     <link rel="import" href="node_modules/npm-polymer-elements/paper-item/paper-item.html">
     <link rel="import" href="node_modules/npm-polymer-elements/paper-checkbox/paper-checkbox.html">
     <link rel="import" href="node_modules/npm-polymer-elements/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="node_modules/npm-polymer-elements/paper-tooltip/paper-tooltip.html">
    
     <!-- 4. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
@@ -36,8 +37,6 @@
             System.import('app').catch(function(err){ console.error(err); });
         });
     </script>
-
-
 </head>
 
 <!-- 3. Display the application -->
