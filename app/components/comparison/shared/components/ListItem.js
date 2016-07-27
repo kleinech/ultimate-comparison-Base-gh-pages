@@ -8,7 +8,7 @@ class ListItem {
         this.convertChilds();
     }
     convertChilds() {
-        this.htmlChilds = this.converter.makeHtml(this.plainChilds.replace(/^[\s]{3}/, ""));
+        this.htmlChilds = this.converter.makeHtml(this.plainChilds.replace(/^[\s]{3}/gm, ""));
     }
     getLabel() {
         return this.content + this.htmlChilds;

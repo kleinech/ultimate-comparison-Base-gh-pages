@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const tooltip_1 = require('ng2-bootstrap/components/tooltip');
 const angular2_polymer_1 = require('@vaadin/angular2-polymer');
 const index_pipes_1 = require('../pipes/index.pipes');
 const index_1 = require('../../modaldialog/index');
@@ -62,8 +61,7 @@ ComparisonComponent = __decorate([
         directives: [
             comparison_details_component_1.ComparisonDetailsComponent,
             index_2.INPUT_COMPONENTS,
-            index_2.INPUT_COMPONENTS,
-            tooltip_1.TOOLTIP_DIRECTIVES,
+            index_2.INPUT_DIRECTIVES,
             index_1.ModalDialogComponent,
             angular2_polymer_1.PolymerElement('paper-header-panel'),
             angular2_polymer_1.PolymerElement('paper-dialog'),
@@ -72,6 +70,7 @@ ComparisonComponent = __decorate([
             angular2_polymer_1.PolymerElement('paper-listbox'),
             angular2_polymer_1.PolymerElement('paper-item'),
             angular2_polymer_1.PolymerElement('paper-checkbox'),
+            angular2_polymer_1.PolymerElement('paper-tooltip')
         ],
         styleUrls: ['../styles/style.css'],
         moduleId: module.id

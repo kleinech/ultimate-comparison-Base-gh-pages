@@ -315,7 +315,7 @@
       }
     },
     "Showcase 2.0": {
-      "plain": "- red 1\n- red 2\n- green\n    - green property\n        - Nous sommes __markdown__\n    - green property\n    - third green property\n- yellow\n    - yellow property\n- dark blue\n- grey\n- light blue\n",
+      "plain": "- red 1\n- red 2\n- green\n    - green property\n        1. Nous sommes __markdown__\n    - green property\n    - third green property\n- yellow\n    - yellow property\n- dark blue\n- grey\n- light blue\n",
       "childs": {
         "0": [
           [
@@ -334,12 +334,12 @@
             {
               "content": "green",
               "plain": "green\n",
-              "plainChilds": "    - green property\n        - Nous sommes __markdown__\n    - green property\n    - third green property\n",
+              "plainChilds": "    - green property\n        1. Nous sommes __markdown__\n    - green property\n    - third green property\n",
               "childs": [
                 {
                   "content": "green property",
                   "plain": "green property\n    ",
-                  "plainChilds": "        - Nous sommes __markdown__\n    ",
+                  "plainChilds": "        1. Nous sommes __markdown__\n    ",
                   "childs": [
                     {
                       "content": "Nous sommes __markdown__",
