@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const index_1 = require('./components/comparison/index');
-let AppComponent = class AppComponent {
+const platform_browser_1 = require('@angular/platform-browser');
+const showdown = require('showdown');
+let ComparisonService = class ComparisonService {
+    constructor(_sanitizer) {
+        this._sanitizer = _sanitizer;
+        this.converter = new showdown.Converter();
+    }
 };
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: '<comparison></comparison>',
-        directives: [index_1.COMPARISON_DIRECTIVES],
-        providers: [index_1.COMPARISON_PROVIDERS]
-    }), 
-    __metadata('design:paramtypes', [])
-], AppComponent);
-exports.AppComponent = AppComponent;
+ComparisonService = __decorate([
+    core_1.Injectable(), 
+    __metadata('design:paramtypes', [platform_browser_1.DomSanitizationService])
+], ComparisonService);
+exports.ComparisonService = ComparisonService;
 
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=comparison.service.js.map

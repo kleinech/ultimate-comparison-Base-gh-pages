@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const index_1 = require('./components/comparison/index');
-let AppComponent = class AppComponent {
+let TablePipe = class TablePipe {
+    transform(value, args) {
+        return value.filter((item) => item.display);
+    }
 };
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: '<comparison></comparison>',
-        directives: [index_1.COMPARISON_DIRECTIVES],
-        providers: [index_1.COMPARISON_PROVIDERS]
+TablePipe = __decorate([
+    core_1.Pipe({
+        name: 'tablefilter',
+        pure: false
     }), 
     __metadata('design:paramtypes', [])
-], AppComponent);
-exports.AppComponent = AppComponent;
+], TablePipe);
+exports.TablePipe = TablePipe;
 
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=table.pipe.js.map
