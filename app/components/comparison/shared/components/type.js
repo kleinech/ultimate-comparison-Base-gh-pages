@@ -1,7 +1,7 @@
 "use strict";
-const LabelCls_1 = require('./LabelCls');
+const labelcls_1 = require('./labelcls');
 class Type {
-    constructor(tag = "", cls = "", labelCls = new LabelCls_1.LabelCls()) {
+    constructor(tag = "", cls = "", labelCls = new labelcls_1.LabelCls()) {
         this.tag = tag;
         this.cls = cls;
         this.labelCls = labelCls;

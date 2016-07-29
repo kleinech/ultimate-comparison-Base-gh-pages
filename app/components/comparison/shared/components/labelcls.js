@@ -32,4 +32,4 @@ class LabelCls {
 }
 exports.LabelCls = LabelCls;
 
-//# sourceMappingURL=label-class.js.map
+//# sourceMappingURL=labelcls.js.map

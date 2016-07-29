@@ -1,7 +1,7 @@
 "use strict";
-const Type_1 = require('./Type');
+const type_1 = require('./type');
 class TableData {
-    constructor(name = "", tag = "", style = "", display = false, type = new Type_1.Type(), values = {}) {
+    constructor(name = "", tag = "", style = "", display = false, type = new type_1.Type(), values = {}) {
         this.name = name;
         this.tag = tag;
         this.style = style;

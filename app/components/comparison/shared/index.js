@@ -3,7 +3,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 __export(require('./components/data'));
-__export(require('./components/label-class'));
+__export(require('./components/labelcls'));
 __export(require('./components/list-item'));
 __export(require('./components/property'));
 __export(require('./components/table-data'));
