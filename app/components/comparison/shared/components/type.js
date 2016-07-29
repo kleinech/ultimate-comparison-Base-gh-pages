@@ -9,4 +9,4 @@ class Type {
 }
 exports.Type = Type;
 
-//# sourceMappingURL=Type.js.map
+//# sourceMappingURL=type.js.map

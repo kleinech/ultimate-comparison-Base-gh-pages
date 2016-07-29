@@ -7,4 +7,4 @@ class Value {
 }
 exports.Value = Value;
 
-//# sourceMappingURL=Value.js.map
+//# sourceMappingURL=value.js.map

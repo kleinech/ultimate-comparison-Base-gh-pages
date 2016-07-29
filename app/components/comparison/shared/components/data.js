@@ -33,4 +33,4 @@ class Data {
 }
 exports.Data = Data;
 
-//# sourceMappingURL=Data.js.map
+//# sourceMappingURL=data.js.map

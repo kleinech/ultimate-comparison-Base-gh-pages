@@ -8,4 +8,4 @@ class Property {
 }
 exports.Property = Property;
 
-//# sourceMappingURL=Property.js.map
+//# sourceMappingURL=property.js.map

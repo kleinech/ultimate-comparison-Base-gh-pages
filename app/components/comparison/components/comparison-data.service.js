@@ -19,7 +19,7 @@ let ComparisonDataService = class ComparisonDataService {
         this.data = new Array();
     }
     loadData(tableDataSet) {
-        this.http.request('app/components/comparison/data/Data.json')
+        this.http.request('app/components/comparison/data/data.json')
             .subscribe(res => {
             res.json().forEach(obj => {
                 let data = new index_1.Data();

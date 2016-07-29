@@ -20,20 +20,20 @@ let ComparisonConfigService = class ComparisonConfigService {
         this.comparisonDataService = comparisonDataService;
     }
     loadTableData() {
-        this.http.request('comparison-configuration/Table.json')
+        this.http.request('comparison-configuration/table.json')
             .subscribe(res => {
             this.tableDataSet = new index_1.TableDataSet(res.json());
             this.comparisonDataService.loadData(this.tableDataSet);
         });
     }
     loadCriteria() {
-        this.http.request('comparison-configuration/Criteria.json')
+        this.http.request('comparison-configuration/criteria.json')
             .subscribe(res => {
             this.criteriaSet = new index_1.CriteriaSet(res.json());
         });
     }
     loadComparison() {
-        this.http.request('comparison-configuration/Comparison.json')
+        this.http.request('comparison-configuration/comparison.json')
             .subscribe(res => {
             this.comparison = new index_1.Comparison(res.json());
             this.title.setTitle(this.comparison.title);
