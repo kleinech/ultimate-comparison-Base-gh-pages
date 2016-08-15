@@ -39,6 +39,14 @@ let ComparisonConfigService = class ComparisonConfigService {
             this.title.setTitle(this.comparison.title);
         });
     }
+    getBodyAttachmentTags() {
+        if (!this.comparison)
+            return new Array();
+        let tags = this.comparison.details.bodyAttachmentTags;
+        if (tags.length == 0)
+            tags = this.comparisonDataService.getDefaultAttachmentTags();
+        return tags;
+    }
 };
 ComparisonConfigService = __decorate([
     core_1.Injectable(), 

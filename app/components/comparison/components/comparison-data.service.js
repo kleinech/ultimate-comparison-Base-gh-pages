@@ -17,6 +17,7 @@ let ComparisonDataService = class ComparisonDataService {
         this.http = http;
         this.comparisonService = comparisonService;
         this.data = new Array();
+        this.tags = {};
     }
     loadData(tableDataSet) {
         this.http.request('app/components/comparison/data/data.json')
@@ -43,6 +44,7 @@ let ComparisonDataService = class ComparisonDataService {
                             break;
                         default:
                             let p = new index_1.Property();
+                            this.tags[key] = key;
                             p.plain = obj[key].plain;
                             if (tableDataSet.getTableData(key).type.tag == "text") {
                                 p.text == obj[key].text;
@@ -65,6 +67,15 @@ let ComparisonDataService = class ComparisonDataService {
                 this.data.push(data);
             });
         });
+    }
+    getDefaultAttachmentTags() {
+        let tags = new Array();
+        for (let key in this.tags) {
+            if (!this.tags.hasOwnProperty(key) || key == "tag" || key == "url" || key == "descr")
+                continue;
+            tags.push(this.tags[key]);
+        }
+        return tags;
     }
 };
 ComparisonDataService = __decorate([
