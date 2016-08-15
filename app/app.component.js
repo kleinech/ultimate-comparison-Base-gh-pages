@@ -14,7 +14,7 @@ let AppComponent = class AppComponent {
 };
 AppComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
+        selector: 'myapp',
         template: '<comparison></comparison>',
         directives: [index_1.COMPARISON_DIRECTIVES],
         providers: [index_1.COMPARISON_PROVIDERS]
