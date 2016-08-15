@@ -1,9 +1,10 @@
 "use strict";
 const type_1 = require('./type');
 class TableData {
-    constructor(name = "", tag = "", style = "", display = false, type = new type_1.Type(), values = {}) {
+    constructor(name = "", tag = "", url = "", style = "", display = false, type = new type_1.Type(), values = {}) {
         this.name = name;
         this.tag = tag;
+        this.url = url;
         this.style = style;
         this.display = display;
         this.type = type;

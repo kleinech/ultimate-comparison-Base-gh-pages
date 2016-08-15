@@ -33,7 +33,7 @@ class TableDataSet {
                 });
             }
             let type = new index_1.Type(obj.type.tag, obj.type.class, lcls);
-            let td = new index_1.TableData(obj.name, obj.tag, obj.style, obj.display, type, values);
+            let td = new index_1.TableData(obj.name, obj.tag, obj.urlTag, obj.style, obj.display, type, values);
             this.tableDataSet[obj.tag] = td;
         });
     }
