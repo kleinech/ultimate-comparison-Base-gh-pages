@@ -13,11 +13,13 @@ const http_1 = require('@angular/http');
 const platform_browser_1 = require('@angular/platform-browser');
 const index_1 = require('./../shared/index');
 const comparison_data_service_1 = require('./comparison-data.service');
+const comparison_service_1 = require('./comparison.service');
 let ComparisonConfigService = class ComparisonConfigService {
-    constructor(title, http, comparisonDataService) {
+    constructor(title, http, comparisonDataService, comparisonService) {
         this.title = title;
         this.http = http;
         this.comparisonDataService = comparisonDataService;
+        this.comparisonService = comparisonService;
     }
     loadTableData() {
         this.http.request('comparison-configuration/table.json')
@@ -39,6 +41,12 @@ let ComparisonConfigService = class ComparisonConfigService {
             this.title.setTitle(this.comparison.title);
         });
     }
+    loadDescription() {
+        this.http.request('comparison-configuration/description.md')
+            .subscribe(res => {
+            this.description = this.comparisonService.converter.makeHtml(res.text());
+        });
+    }
     getBodyAttachmentTags() {
         if (!this.comparison)
             return new Array();
@@ -50,7 +58,7 @@ let ComparisonConfigService = class ComparisonConfigService {
 };
 ComparisonConfigService = __decorate([
     core_1.Injectable(), 
-    __metadata('design:paramtypes', [platform_browser_1.Title, http_1.Http, comparison_data_service_1.ComparisonDataService])
+    __metadata('design:paramtypes', [platform_browser_1.Title, http_1.Http, comparison_data_service_1.ComparisonDataService, comparison_service_1.ComparisonService])
 ], ComparisonConfigService);
 exports.ComparisonConfigService = ComparisonConfigService;
 

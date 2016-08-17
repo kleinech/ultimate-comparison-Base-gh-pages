@@ -15,6 +15,7 @@ let ModalDialogComponent = class ModalDialogComponent {
     toggleOpen(opened) {
         if (opened) {
             this.container.nativeElement.classList.add('mc-opened');
+            this.container.nativeElement.scrollTop = -25;
         }
         else {
             this.container.nativeElement.classList.remove('mc-opened');
@@ -24,8 +25,10 @@ let ModalDialogComponent = class ModalDialogComponent {
     open() {
         document.body.classList.add('modal-open');
         this.container.nativeElement.classList.add('mc-opened');
-        if (this.dia && this.dia.nativeElement.open)
+        if (this.dia && this.dia.nativeElement.open) {
             this.dia.nativeElement.open();
+            this.container.nativeElement.scrollTop = -25;
+        }
     }
     close() {
         document.body.classList.remove('modal-open');

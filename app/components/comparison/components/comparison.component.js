@@ -29,6 +29,7 @@ let ComparisonComponent = class ComparisonComponent {
         this.confServ.loadComparison();
         this.confServ.loadCriteria();
         this.confServ.loadTableData();
+        this.confServ.loadDescription();
     }
     criteriaChanged(value, crit) {
         if (value) {
