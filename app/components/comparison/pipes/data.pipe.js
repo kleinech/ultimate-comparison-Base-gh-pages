@@ -11,11 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require('@angular/core');
 let DataPipe = class DataPipe {
     transform(value, args = []) {
-        this.query = args;
+        this.query = args[0];
         if (!this.query) {
             return value;
         }
         return value.filter((item) => {
+            if (item.tag.trim() === "Template" && !args[1])
+                return false;
             for (let key in this.query) {
                 if (!this.query.hasOwnProperty(key))
                     continue;

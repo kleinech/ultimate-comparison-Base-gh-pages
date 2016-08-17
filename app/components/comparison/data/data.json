@@ -264,7 +264,7 @@
     }
   },
   {
-    "tag": "Default ALL - http://default-0-entry.example.com",
+    "tag": "Template - http://www.example.com",
     "descr": "Default short description",
     "Performance": {
       "plain": "- slow\n- fast\n",

@@ -8,6 +8,7 @@ class Comparison {
         this.tabletitle = jsonObj.tabletitle ? jsonObj.tabletitle : "Comparison of ...";
         this.repository = jsonObj.repository ? jsonObj.repository : "https://github.com/ultimate-comparisons/ultimate-comparison-BASE.git";
         this.details = jsonObj.details ? new details_1.Details(jsonObj.details) : new details_1.Details({});
+        this.displaytemplate = jsonObj.displaytemplate ? jsonObj.displaytemplate : false;
     }
 }
 exports.Comparison = Comparison;

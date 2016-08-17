@@ -20,6 +20,7 @@ let ComparisonConfigService = class ComparisonConfigService {
         this.http = http;
         this.comparisonDataService = comparisonDataService;
         this.comparisonService = comparisonService;
+        this.displayAllName = "All";
     }
     loadTableData() {
         this.http.request('comparison-configuration/table.json')
@@ -54,6 +55,14 @@ let ComparisonConfigService = class ComparisonConfigService {
         if (tags.length == 0)
             tags = this.comparisonDataService.getDefaultAttachmentTags();
         return tags;
+    }
+    displayAllChange(toggle) {
+        if (this.tableDataSet) {
+            this.tableDataSet.getTableDataArray().forEach((item) => {
+                item.display = toggle;
+            });
+            this.displayAllName = toggle ? "None" : "All";
+        }
     }
 };
 ComparisonConfigService = __decorate([
