@@ -25,16 +25,58 @@ let ComparisonComponent = class ComparisonComponent {
         this.confServ = confServ;
         this.criteriaSelection = [];
         this.query = {};
+        this.order = new Array(3);
+        this.orderOption = new Array(3);
+        this.ctrlCounter = 0;
         this.activeRow = new index_3.Data();
         this.confServ.loadComparison();
         this.confServ.loadCriteria();
         this.confServ.loadTableData();
         this.confServ.loadDescription();
+        this.order[0] = this.order[1] = this.order[2] = "tag";
+        this.orderOption[0] = 1;
+        this.orderOption[1] = this.orderOption[2] = 0;
     }
     criteriaChanged(value, crit) {
         if (value) {
             this.query[crit.tag] = new index_3.CriteriaSelection(value, crit);
         }
+    }
+    orderChanged(value, pos) {
+        if (this.order.length > pos) {
+            this.order[pos] = value;
+        }
+    }
+    orderOptionChanged(value, pos) {
+        if (this.orderOption.length > pos) {
+            this.orderOption[pos] = value;
+        }
+    }
+    orderClick(e, value) {
+        let pos = this.order.findIndex(name => name == value);
+        if (e.ctrlKey) {
+            this.ctrlCounter = this.order[this.ctrlCounter] == value ? this.ctrlCounter : this.ctrlCounter + 1;
+        }
+        else {
+            this.ctrlCounter = 0;
+        }
+        if (typeof pos != 'undefined' && pos >= 0) {
+            this.order[this.ctrlCounter] = value;
+            this.orderOption[this.ctrlCounter] = this.orderOption[pos] == 1 ? -1 : 1;
+            this.orderOption[pos] = pos != this.ctrlCounter ? 0 : this.orderOption[this.ctrlCounter];
+        }
+        else {
+            this.order[this.ctrlCounter] = value;
+            this.orderOption[this.ctrlCounter] = 1;
+        }
+        if (this.ctrlCounter == 0) {
+            for (let i = 1; i < this.orderOption.length; i++) {
+                this.orderOption[i] = 0;
+            }
+        }
+    }
+    displayOrder(value, option) {
+        return this.order.findIndex(val => val == value) >= 0 && this.orderOption[this.order.findIndex(val => val == value)] == option;
     }
     showDetails(data) {
         this.activeRow = data;
