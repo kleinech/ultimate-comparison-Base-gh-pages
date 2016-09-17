@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const angular2_polymer_1 = require('@vaadin/angular2-polymer');
-const index_pipes_1 = require('../pipes/index.pipes');
 const index_1 = require('../shared/index');
 const comparison_config_service_1 = require('./comparison-config.service');
 const comparison_data_service_1 = require('./comparison-data.service');
@@ -56,10 +54,6 @@ ComparisonDetailsComponent = __decorate([
     core_1.Component({
         selector: 'comparison-details',
         templateUrl: '../templates/comparison-details.template.html',
-        directives: [
-            angular2_polymer_1.PolymerElement('paper-tooltip')
-        ],
-        pipes: [index_pipes_1.COMPARISON_PIPES],
         styleUrls: ['../styles/style.css'],
         moduleId: module.id
     }), 

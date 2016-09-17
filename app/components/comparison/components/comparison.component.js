@@ -9,12 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const angular2_polymer_1 = require('@vaadin/angular2-polymer');
-const index_pipes_1 = require('../pipes/index.pipes');
-const index_1 = require('../../modaldialog/index');
-const index_2 = require('../../input/index');
-const comparison_details_component_1 = require('./comparison-details.component');
-const index_3 = require('../shared/index');
+const index_1 = require('../shared/index');
+const index_2 = require('../../modaldialog/index');
 const comparison_config_service_1 = require('./comparison-config.service');
 const comparison_data_service_1 = require('./comparison-data.service');
 const comparison_service_1 = require('./comparison.service');
@@ -28,7 +24,7 @@ let ComparisonComponent = class ComparisonComponent {
         this.order = new Array(3);
         this.orderOption = new Array(3);
         this.ctrlCounter = 0;
-        this.activeRow = new index_3.Data();
+        this.activeRow = new index_1.Data();
         this.confServ.loadComparison();
         this.confServ.loadCriteria();
         this.confServ.loadTableData();
@@ -39,7 +35,7 @@ let ComparisonComponent = class ComparisonComponent {
     }
     criteriaChanged(value, crit) {
         if (value) {
-            this.query[crit.tag] = new index_3.CriteriaSelection(value, crit);
+            this.query[crit.tag] = new index_1.CriteriaSelection(value, crit);
         }
     }
     orderChanged(value, pos) {
@@ -88,33 +84,16 @@ let ComparisonComponent = class ComparisonComponent {
 };
 __decorate([
     core_1.ViewChild('details'), 
-    __metadata('design:type', index_1.ModalDialogComponent)
+    __metadata('design:type', index_2.ModalDialogComponent)
 ], ComparisonComponent.prototype, "detailsModal", void 0);
 __decorate([
     core_1.ViewChild('settings'), 
-    __metadata('design:type', index_1.ModalDialogComponent)
+    __metadata('design:type', index_2.ModalDialogComponent)
 ], ComparisonComponent.prototype, "settingsModal", void 0);
 ComparisonComponent = __decorate([
     core_1.Component({
         selector: 'comparison',
         templateUrl: '../templates/comparison.template.html',
-        pipes: [
-            index_pipes_1.COMPARISON_PIPES
-        ],
-        directives: [
-            comparison_details_component_1.ComparisonDetailsComponent,
-            index_2.INPUT_COMPONENTS,
-            index_2.INPUT_DIRECTIVES,
-            index_1.ModalDialogComponent,
-            angular2_polymer_1.PolymerElement('paper-header-panel'),
-            angular2_polymer_1.PolymerElement('paper-dialog'),
-            angular2_polymer_1.PolymerElement('paper-toolbar'),
-            angular2_polymer_1.PolymerElement('paper-card'),
-            angular2_polymer_1.PolymerElement('paper-listbox'),
-            angular2_polymer_1.PolymerElement('paper-item'),
-            angular2_polymer_1.PolymerElement('paper-checkbox'),
-            angular2_polymer_1.PolymerElement('paper-tooltip')
-        ],
         styleUrls: ['../styles/style.css'],
         moduleId: module.id
     }), 

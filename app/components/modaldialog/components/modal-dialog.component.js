@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const angular2_polymer_1 = require('@vaadin/angular2-polymer');
-const paper_dialog_directive_1 = require('../directives/paper-dialog.directive');
 let ModalDialogComponent = class ModalDialogComponent {
     toggleOpen(opened) {
         if (opened) {
@@ -49,10 +47,6 @@ ModalDialogComponent = __decorate([
     core_1.Component({
         selector: 'modal-dialog',
         templateUrl: '../templates/modal-dialog.template.html',
-        directives: [
-            angular2_polymer_1.PolymerElement('paper-dialog'),
-            paper_dialog_directive_1.PaperDialogDirective
-        ],
         styleUrls: ['../styles/style.css'],
         moduleId: module.id
     }), 

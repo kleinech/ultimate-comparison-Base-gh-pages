@@ -19,7 +19,7 @@ let ComparisonService = class ComparisonService {
 };
 ComparisonService = __decorate([
     core_1.Injectable(), 
-    __metadata('design:paramtypes', [platform_browser_1.DomSanitizationService])
+    __metadata('design:paramtypes', [platform_browser_1.DomSanitizer])
 ], ComparisonService);
 exports.ComparisonService = ComparisonService;
 

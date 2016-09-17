@@ -9,15 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const index_1 = require('./components/comparison/index');
 let AppComponent = class AppComponent {
 };
 AppComponent = __decorate([
     core_1.Component({
         selector: 'myapp',
-        template: '<comparison></comparison>',
-        directives: [index_1.COMPARISON_DIRECTIVES],
-        providers: [index_1.COMPARISON_PROVIDERS]
+        template: '<comparison></comparison>'
     }), 
     __metadata('design:paramtypes', [])
 ], AppComponent);
