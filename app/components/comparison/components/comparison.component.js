@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
+const saveAs = require('file-saver');
 const index_1 = require('../shared/index');
 const index_2 = require('../../modaldialog/index');
 const comparison_config_service_1 = require('./comparison-config.service');
@@ -25,6 +26,7 @@ let ComparisonComponent = class ComparisonComponent {
         this.orderOption = new Array(3);
         this.ctrlCounter = 0;
         this.activeRow = new index_1.Data();
+        this.showTable = false;
         this.confServ.loadComparison();
         this.confServ.loadCriteria();
         this.confServ.loadTableData();
@@ -81,6 +83,22 @@ let ComparisonComponent = class ComparisonComponent {
     showTableProperties() {
         this.settingsModal.open();
     }
+    downloadLatexTable() {
+        let content = this.latexTable.nativeElement.textContent;
+        content = content.substr(content.indexOf('%'), content.length);
+        let blob = new Blob([content], { type: 'plain/text' });
+        let s = saveAs;
+        saveAs(blob, "latextable.tex");
+        return window.URL.createObjectURL(blob);
+    }
+    previewLatexTable(show) {
+        if (show) {
+            this.latexTable.nativeElement.classList.remove("ltable");
+        }
+        else {
+            this.latexTable.nativeElement.classList.add("ltable");
+        }
+    }
 };
 __decorate([
     core_1.ViewChild('details'), 
@@ -90,6 +108,10 @@ __decorate([
     core_1.ViewChild('settings'), 
     __metadata('design:type', index_2.ModalDialogComponent)
 ], ComparisonComponent.prototype, "settingsModal", void 0);
+__decorate([
+    core_1.ViewChild('latextable'), 
+    __metadata('design:type', core_1.ElementRef)
+], ComparisonComponent.prototype, "latexTable", void 0);
 ComparisonComponent = __decorate([
     core_1.Component({
         selector: 'comparison',
