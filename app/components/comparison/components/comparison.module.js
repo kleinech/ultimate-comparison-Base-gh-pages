@@ -22,6 +22,7 @@ const platform_browser_2 = require('@angular/platform-browser');
 const comparison_service_1 = require('./comparison.service');
 const comparison_data_service_1 = require('./comparison-data.service');
 const comparison_config_service_1 = require('./comparison-config.service');
+const comparison_citation_service_1 = require('./comparison-citation.service');
 let ComparisonModule = class ComparisonModule {
 };
 ComparisonModule = __decorate([
@@ -55,6 +56,8 @@ ComparisonModule = __decorate([
             comparison_service_1.ComparisonService,
             comparison_data_service_1.ComparisonDataService,
             comparison_config_service_1.ComparisonConfigService,
+            comparison_citation_service_1.ComparisonCitationService,
+            ...index_pipes_1.COMPARISON_PIPES,
             platform_browser_2.Title
         ],
         schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]

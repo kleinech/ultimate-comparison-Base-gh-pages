@@ -23,9 +23,7 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
         ],
-        providers: [],
-        bootstrap: [app_component_1.AppComponent],
-        schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]
+        bootstrap: [app_component_1.AppComponent]
     }), 
     __metadata('design:paramtypes', [])
 ], AppModule);

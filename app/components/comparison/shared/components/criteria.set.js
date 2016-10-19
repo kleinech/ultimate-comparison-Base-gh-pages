@@ -12,6 +12,8 @@ class CriteriaSet {
             crit.values.forEach(val => {
                 let value = new index_1.Value();
                 value.name = val.name ? val.name : "undefined value";
+                value.value = val.name ? val.name : "undefined value";
+                value.label = val.name ? val.name : "undefined value";
                 value.description = val.description ? val.description : "";
                 criteria.values.push(value);
             });

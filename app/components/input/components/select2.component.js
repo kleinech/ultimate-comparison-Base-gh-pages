@@ -9,27 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const jQuery = require('jquery');
-require('select2');
 let Select2Component = class Select2Component {
     constructor() {
-        this.items = new Array();
+        this.ops = [{ value: 't1', label: 't2' }];
+        this.options = new Array();
         this.maximumSelectionLength = 0;
         this.result = new core_1.EventEmitter();
+        this.value = new Array();
     }
-    ngAfterViewInit() {
-        jQuery(this.el.nativeElement).select2({
-            placeholder: this.placeholder,
-            allowClear: true,
-            tags: true
-        });
-        jQuery(this.el.nativeElement).on('change', (e) => (this.value = jQuery(e.target).val() ? jQuery(e.target).val() : [], this.result.emit(this.value)));
+    select(item) {
+        this.value.push(item.value);
+        this.result.emit(this.value);
+    }
+    deSelect(item) {
+        let index = this.value.indexOf(item.value);
+        if (index >= -1) {
+            this.value.splice(index, 1);
+        }
+        this.result.emit(this.value);
     }
 };
 __decorate([
     core_1.Input(), 
     __metadata('design:type', Array)
-], Select2Component.prototype, "items", void 0);
+], Select2Component.prototype, "options", void 0);
 __decorate([
     core_1.Input(), 
     __metadata('design:type', Number)
@@ -42,10 +45,6 @@ __decorate([
     core_1.Output(), 
     __metadata('design:type', core_1.EventEmitter)
 ], Select2Component.prototype, "result", void 0);
-__decorate([
-    core_1.ViewChild('select2'), 
-    __metadata('design:type', core_1.ElementRef)
-], Select2Component.prototype, "el", void 0);
 Select2Component = __decorate([
     core_1.Component({
         selector: 'select2',

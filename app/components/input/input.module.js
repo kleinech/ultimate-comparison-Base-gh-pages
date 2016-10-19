@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require('@angular/core');
 const platform_browser_1 = require('@angular/platform-browser');
+const angular2_select_1 = require('angular2-select');
 const select2_component_1 = require('./components/select2.component');
 const select_component_1 = require('./components/select.component');
 const paper_checkbox_directive_1 = require('./directives/paper-checkbox.directive');
@@ -18,7 +19,8 @@ let InputModule = class InputModule {
 InputModule = __decorate([
     core_1.NgModule({
         imports: [
-            platform_browser_1.BrowserModule
+            platform_browser_1.BrowserModule,
+            angular2_select_1.SelectModule
         ],
         exports: [
             select_component_1.SelectComponent,
