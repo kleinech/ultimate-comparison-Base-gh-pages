@@ -16,7 +16,7 @@ let ComparisonCitationService = class ComparisonCitationService {
         this.bibEntriesHtml = {};
         this.bibEntriesInline = {};
         this.keys = {};
-        this.references = new Array();
+        this.references = [];
     }
     loadCitationData() {
         this.http.request('citation/output/fbib.json')
@@ -37,10 +37,22 @@ let ComparisonCitationService = class ComparisonCitationService {
         }
         return entries.length > 0 ? entries : [{ key: "emty", html: "" }];
     }
-    addUsedEntry(entry) {
-        if (!this.keys[entry]) {
-            this.references.push(entry);
-            this.keys[entry] = entry;
+    addUsedEntries(entries) {
+        let newEntries = new Array();
+        for (let index in entries) {
+            let entry = entries[index];
+            if (!this.keys[entry]) {
+                newEntries.push(entry);
+                this.keys[entry] = entry;
+            }
+        }
+        if (newEntries.length > 0) {
+            if (this.references) {
+                this.references = this.references.concat(newEntries);
+            }
+            else {
+                this.references = newEntries;
+            }
         }
     }
     getBibEntriesHtml(key) {

@@ -13,9 +13,10 @@ let CitationPipe = class CitationPipe {
     transform(value, args = []) {
         let citServ = args[0];
         let latex = args[1];
+        let entries = new Array();
         if (!latex) {
             value = value.replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
-                citServ.addUsedEntry(dec);
+                entries.push(dec);
                 return '<a href="#' + dec + '">' + citServ.getBibEntriesInline(dec) + '</a>';
             });
         }
@@ -24,6 +25,7 @@ let CitationPipe = class CitationPipe {
                 return '\\cite{' + dec + '}';
             });
         }
+        citServ.addUsedEntries(entries);
         return value;
     }
 };
