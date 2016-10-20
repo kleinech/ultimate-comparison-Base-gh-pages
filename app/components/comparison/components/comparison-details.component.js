@@ -13,11 +13,13 @@ const index_1 = require('../shared/index');
 const comparison_config_service_1 = require('./comparison-config.service');
 const comparison_data_service_1 = require('./comparison-data.service');
 const comparison_service_1 = require('./comparison.service');
+const comparison_citation_service_1 = require('./comparison-citation.service');
 let ComparisonDetailsComponent = class ComparisonDetailsComponent {
-    constructor(serv, dataServ, confServ) {
+    constructor(serv, dataServ, confServ, citationServ) {
         this.serv = serv;
         this.dataServ = dataServ;
         this.confServ = confServ;
+        this.citationServ = citationServ;
         this.opened = false;
         this.header = {
             html: "",
@@ -57,7 +59,7 @@ ComparisonDetailsComponent = __decorate([
         styleUrls: ['../styles/style.css'],
         moduleId: module.id
     }), 
-    __metadata('design:paramtypes', [comparison_service_1.ComparisonService, comparison_data_service_1.ComparisonDataService, comparison_config_service_1.ComparisonConfigService])
+    __metadata('design:paramtypes', [comparison_service_1.ComparisonService, comparison_data_service_1.ComparisonDataService, comparison_config_service_1.ComparisonConfigService, comparison_citation_service_1.ComparisonCitationService])
 ], ComparisonDetailsComponent);
 exports.ComparisonDetailsComponent = ComparisonDetailsComponent;
 

@@ -16,14 +16,12 @@ const comparison_config_service_1 = require('./comparison-config.service');
 const comparison_data_service_1 = require('./comparison-data.service');
 const comparison_service_1 = require('./comparison.service');
 const comparison_citation_service_1 = require('./comparison-citation.service');
-const citation_pipe_1 = require('../pipes/citation.pipe');
 let ComparisonComponent = class ComparisonComponent {
-    constructor(serv, dataServ, confServ, citationServ, citationPipe) {
+    constructor(serv, dataServ, confServ, citationServ) {
         this.serv = serv;
         this.dataServ = dataServ;
         this.confServ = confServ;
         this.citationServ = citationServ;
-        this.citationPipe = citationPipe;
         this.criteriaSelection = [];
         this.query = {};
         this.order = new Array(3);
@@ -124,7 +122,7 @@ ComparisonComponent = __decorate([
         styleUrls: ['../styles/style.css'],
         moduleId: module.id
     }), 
-    __metadata('design:paramtypes', [comparison_service_1.ComparisonService, comparison_data_service_1.ComparisonDataService, comparison_config_service_1.ComparisonConfigService, comparison_citation_service_1.ComparisonCitationService, citation_pipe_1.CitationPipe])
+    __metadata('design:paramtypes', [comparison_service_1.ComparisonService, comparison_data_service_1.ComparisonDataService, comparison_config_service_1.ComparisonConfigService, comparison_citation_service_1.ComparisonCitationService])
 ], ComparisonComponent);
 exports.ComparisonComponent = ComparisonComponent;
 

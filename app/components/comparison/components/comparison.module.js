@@ -38,8 +38,8 @@ ComparisonModule = __decorate([
         ],
         declarations: [
             comparison_component_1.ComparisonComponent,
-            ...index_pipes_1.COMPARISON_PIPES,
             comparison_details_component_1.ComparisonDetailsComponent,
+            ...index_pipes_1.COMPARISON_PIPES,
             angular2_polymer_1.PolymerElement('paper-header-panel'),
             angular2_polymer_1.PolymerElement('paper-button'),
             angular2_polymer_1.PolymerElement('paper-dialog'),

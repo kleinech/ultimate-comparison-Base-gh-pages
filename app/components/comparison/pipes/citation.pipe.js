@@ -12,10 +12,18 @@ const core_1 = require('@angular/core');
 let CitationPipe = class CitationPipe {
     transform(value, args = []) {
         let citServ = args[0];
-        value = value.replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
-            citServ.addUsedEntry(dec);
-            return '<a href="#' + dec + '">' + citServ.getBibEntriesInline(dec) + '</a>';
-        });
+        let latex = args[1];
+        if (!latex) {
+            value = value.replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
+                citServ.addUsedEntry(dec);
+                return '<a href="#' + dec + '">' + citServ.getBibEntriesInline(dec) + '</a>';
+            });
+        }
+        else {
+            value = value.replace(/(?:\[@)([^\]]*)(?:\])/g, (match, dec) => {
+                return '\\cite{' + dec + '}';
+            });
+        }
         return value;
     }
 };

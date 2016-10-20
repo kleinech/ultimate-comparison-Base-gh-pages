@@ -315,7 +315,7 @@
       }
     },
     "Showcase 2.0": {
-      "plain": "- red 1\n- red 2\n- green\n    - green property\n        1. Nous sommes __markdown__\n    - green property\n    - third green property\n- yellow\n    - yellow property\n- dark blue\n- grey\n- light blue\n",
+      "plain": "- red 1\n- red 2\n- green\n    - [@Adi:2004:ASM:988145.988150]\n- yellow\n    - yellow property\n- dark blue\n- grey\n- light blue\n",
       "childs": {
         "0": [
           [
@@ -334,30 +334,11 @@
             {
               "content": "green",
               "plain": "green\n",
-              "plainChilds": "    - green property\n        1. Nous sommes __markdown__\n    - green property\n    - third green property\n",
+              "plainChilds": "    - [@Adi:2004:ASM:988145.988150]\n",
               "childs": [
                 {
-                  "content": "green property",
-                  "plain": "green property\n    ",
-                  "plainChilds": "        1. Nous sommes __markdown__\n    ",
-                  "childs": [
-                    {
-                      "content": "Nous sommes __markdown__",
-                      "plain": "Nous sommes __markdown__\n    ",
-                      "plainChilds": "",
-                      "childs": []
-                    }
-                  ]
-                },
-                {
-                  "content": "green property",
-                  "plain": "green property\n    ",
-                  "plainChilds": "",
-                  "childs": []
-                },
-                {
-                  "content": "third green property",
-                  "plain": "third green property\n",
+                  "content": ",[@Adi:2004:ASM:988145.988150]",
+                  "plain": "[@Adi:2004:ASM:988145.988150]\n",
                   "plainChilds": "",
                   "childs": []
                 }
@@ -399,10 +380,10 @@
       }
     },
     "Description": {
-      "plain": "Default long description in __markdown__.",
+      "plain": "Default long description in __markdown__.\n- Bibkey example [@Adi:2004:ASM:988145.988150]\n- [Link example](http://example.com).",
       "childs": {
         "0": [
-          "Default long description in __markdown__."
+          "Default long description in __markdown__. - Bibkey example [@Adi:2004:ASM:988145.988150] - [Link example]."
         ]
       }
     }
