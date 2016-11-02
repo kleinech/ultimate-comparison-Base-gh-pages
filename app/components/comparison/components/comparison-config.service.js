@@ -22,30 +22,34 @@ let ComparisonConfigService = class ComparisonConfigService {
         this.comparisonService = comparisonService;
         this.displayAllName = "All";
     }
-    loadTableData() {
+    loadTableData(cd) {
         this.http.request('comparison-configuration/table.json')
             .subscribe(res => {
             this.tableDataSet = new index_1.TableDataSet(res.json());
-            this.comparisonDataService.loadData(this.tableDataSet);
+            cd.markForCheck();
+            this.comparisonDataService.loadData(this.tableDataSet, cd);
         });
     }
-    loadCriteria() {
+    loadCriteria(cd) {
         this.http.request('comparison-configuration/criteria.json')
             .subscribe(res => {
             this.criteriaSet = new index_1.CriteriaSet(res.json());
+            cd.markForCheck();
         });
     }
-    loadComparison() {
+    loadComparison(cd) {
         this.http.request('comparison-configuration/comparison.json')
             .subscribe(res => {
             this.comparison = new index_1.Comparison(res.json());
             this.title.setTitle(this.comparison.title);
+            cd.markForCheck();
         });
     }
-    loadDescription() {
+    loadDescription(cd) {
         this.http.request('comparison-configuration/description.md')
             .subscribe(res => {
             this.description = this.comparisonService.converter.makeHtml(res.text());
+            cd.markForCheck();
         });
     }
     getBodyAttachmentTags() {

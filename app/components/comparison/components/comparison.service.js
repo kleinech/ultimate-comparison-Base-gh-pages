@@ -14,7 +14,22 @@ const showdown = require('showdown');
 let ComparisonService = class ComparisonService {
     constructor(_sanitizer) {
         this._sanitizer = _sanitizer;
+        this.footnotes = {};
+        this.findex = 0;
         this.converter = new showdown.Converter();
+    }
+    getFootnotes() {
+        let fnotes = new Array();
+        let ind = 0;
+        for (let key in this.footnotes) {
+            if (!this.footnotes.hasOwnProperty(key))
+                continue;
+            if (this.footnotes[key].count < 1)
+                continue;
+            let item = this.footnotes[key];
+            fnotes.push("\\footnotetext[\\numexpr\\snum+" + ind++ + "]&#123;" + item.value + " \\label&#123;" + item.index + "&#125; &#125;");
+        }
+        return fnotes;
     }
 };
 ComparisonService = __decorate([

@@ -17,11 +17,12 @@ const comparison_data_service_1 = require('./comparison-data.service');
 const comparison_service_1 = require('./comparison.service');
 const comparison_citation_service_1 = require('./comparison-citation.service');
 let ComparisonComponent = class ComparisonComponent {
-    constructor(serv, dataServ, confServ, citationServ) {
+    constructor(serv, dataServ, confServ, citationServ, cd) {
         this.serv = serv;
         this.dataServ = dataServ;
         this.confServ = confServ;
         this.citationServ = citationServ;
+        this.cd = cd;
         this.criteriaSelection = [];
         this.query = {};
         this.order = new Array(3);
@@ -29,11 +30,11 @@ let ComparisonComponent = class ComparisonComponent {
         this.ctrlCounter = 0;
         this.activeRow = new index_1.Data();
         this.showTable = false;
-        this.confServ.loadComparison();
-        this.confServ.loadCriteria();
-        this.confServ.loadTableData();
-        this.confServ.loadDescription();
-        this.citationServ.loadCitationData();
+        this.confServ.loadComparison(this.cd);
+        this.confServ.loadCriteria(this.cd);
+        this.confServ.loadTableData(this.cd);
+        this.confServ.loadDescription(this.cd);
+        this.citationServ.loadCitationData(this.cd);
         this.order[0] = this.order[1] = this.order[2] = "tag";
         this.orderOption[0] = 1;
         this.orderOption[1] = this.orderOption[2] = 0;
@@ -42,16 +43,19 @@ let ComparisonComponent = class ComparisonComponent {
         if (value) {
             this.query[crit.tag] = new index_1.CriteriaSelection(value, crit);
         }
+        this.cd.markForCheck();
     }
     orderChanged(value, pos) {
         if (this.order.length > pos) {
             this.order[pos] = value;
         }
+        this.cd.markForCheck();
     }
     orderOptionChanged(value, pos) {
         if (this.orderOption.length > pos) {
             this.orderOption[pos] = value;
         }
+        this.cd.markForCheck();
     }
     orderClick(e, value) {
         let pos = this.order.findIndex(name => name == value);
@@ -75,6 +79,7 @@ let ComparisonComponent = class ComparisonComponent {
                 this.orderOption[i] = 0;
             }
         }
+        this.cd.markForCheck();
     }
     displayOrder(value, option) {
         return this.order.findIndex(val => val == value) >= 0 && this.orderOption[this.order.findIndex(val => val == value)] == option;
@@ -120,9 +125,10 @@ ComparisonComponent = __decorate([
         selector: 'comparison',
         templateUrl: '../templates/comparison.template.html',
         styleUrls: ['../styles/style.css'],
+        changeDetection: core_1.ChangeDetectionStrategy.OnPush,
         moduleId: module.id
     }), 
-    __metadata('design:paramtypes', [comparison_service_1.ComparisonService, comparison_data_service_1.ComparisonDataService, comparison_config_service_1.ComparisonConfigService, comparison_citation_service_1.ComparisonCitationService])
+    __metadata('design:paramtypes', [comparison_service_1.ComparisonService, comparison_data_service_1.ComparisonDataService, comparison_config_service_1.ComparisonConfigService, comparison_citation_service_1.ComparisonCitationService, core_1.ChangeDetectorRef])
 ], ComparisonComponent);
 exports.ComparisonComponent = ComparisonComponent;
 

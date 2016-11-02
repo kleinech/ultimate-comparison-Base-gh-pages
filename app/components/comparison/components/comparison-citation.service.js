@@ -18,14 +18,16 @@ let ComparisonCitationService = class ComparisonCitationService {
         this.keys = {};
         this.references = [];
     }
-    loadCitationData() {
+    loadCitationData(cd) {
         this.http.request('citation/output/fbib.json')
             .subscribe(res => {
             this.bibEntriesHtml = res.json();
+            cd.markForCheck();
         });
         this.http.request('citation/output/fkeys.json')
             .subscribe(res => {
             this.bibEntriesInline = res.json();
+            cd.markForCheck();
         });
     }
     getUsedEntries() {

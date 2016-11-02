@@ -13,6 +13,7 @@ const platform_browser_1 = require('@angular/platform-browser');
 const http_1 = require('@angular/http');
 const angular2_polymer_1 = require('@vaadin/angular2-polymer');
 const comparison_details_component_1 = require('./comparison-details.component');
+const comparison_footnote_component_1 = require('./comparison-footnote.component');
 const comparison_component_1 = require('./comparison.component');
 const index_pipes_1 = require('../pipes/index.pipes');
 const input_module_1 = require('../../input/input.module');
@@ -39,6 +40,7 @@ ComparisonModule = __decorate([
         declarations: [
             comparison_component_1.ComparisonComponent,
             comparison_details_component_1.ComparisonDetailsComponent,
+            comparison_footnote_component_1.ComparisonFootnoteComponent,
             ...index_pipes_1.COMPARISON_PIPES,
             angular2_polymer_1.PolymerElement('paper-header-panel'),
             angular2_polymer_1.PolymerElement('paper-button'),

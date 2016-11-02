@@ -19,7 +19,7 @@ let ComparisonDataService = class ComparisonDataService {
         this.data = new Array();
         this.tags = {};
     }
-    loadData(tableDataSet) {
+    loadData(tableDataSet, cd) {
         this.http.request('app/components/comparison/data/data.json')
             .subscribe(res => {
             res.json().forEach(obj => {
@@ -66,6 +66,7 @@ let ComparisonDataService = class ComparisonDataService {
                 ;
                 this.data.push(data);
             });
+            cd.markForCheck();
         });
     }
     getDefaultAttachmentTags() {

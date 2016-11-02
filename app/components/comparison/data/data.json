@@ -265,7 +265,7 @@
   },
   {
     "tag": "Template - http://www.example.com",
-    "descr": "Default short description",
+    "descr": "Default short description (with bibkey: [@esper-reference])",
     "Performance": {
       "plain": "- slow\n- fast\n",
       "childs": {
@@ -315,7 +315,7 @@
       }
     },
     "Showcase 2.0": {
-      "plain": "- red 1\n- red 2\n- green\n    - [@Adi:2004:ASM:988145.988150]\n- yellow\n    - yellow property\n- dark blue\n- grey\n- light blue\n",
+      "plain": "- red 1\n- red 2\n- green\n    - [@eckertThesisCEP]\n- yellow\n    - yellow property\n- dark blue\n    - [@eckertThesisCEP]\n- grey\n- light blue\n",
       "childs": {
         "0": [
           [
@@ -334,11 +334,11 @@
             {
               "content": "green",
               "plain": "green\n",
-              "plainChilds": "    - [@Adi:2004:ASM:988145.988150]\n",
+              "plainChilds": "    - [@eckertThesisCEP]\n",
               "childs": [
                 {
-                  "content": ",[@Adi:2004:ASM:988145.988150]",
-                  "plain": "[@Adi:2004:ASM:988145.988150]\n",
+                  "content": ",[@eckertThesisCEP]",
+                  "plain": "[@eckertThesisCEP]\n",
                   "plainChilds": "",
                   "childs": []
                 }
@@ -360,8 +360,15 @@
             {
               "content": "dark blue",
               "plain": "dark blue\n",
-              "plainChilds": "",
-              "childs": []
+              "plainChilds": "    - [@eckertThesisCEP]\n",
+              "childs": [
+                {
+                  "content": ",[@eckertThesisCEP]",
+                  "plain": "[@eckertThesisCEP]\n",
+                  "plainChilds": "",
+                  "childs": []
+                }
+              ]
             },
             {
               "content": "grey",
