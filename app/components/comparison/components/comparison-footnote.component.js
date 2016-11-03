@@ -37,6 +37,9 @@ let ComparisonFootnoteComponent = class ComparisonFootnoteComponent {
     }
     ngOnDestroy() {
         this.compServ.footnotes[this.footnote].count--;
+        if (this.compServ.footnotes[this.footnote].count == 0) {
+            delete this.compServ.footnotes[this.footnote];
+        }
     }
 };
 __decorate([
